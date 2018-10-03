@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   gstrdup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttshivhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/03 13:13:54 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/10/03 14:50:54 by ttshivhu         ###   ########.fr       */
+/*   Created: 2018/10/03 14:40:50 by ttshivhu          #+#    #+#             */
+/*   Updated: 2018/10/03 14:48:26 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <glibft.h>
-#include <stdio.h>
 
-char	*cpy(t_garbege **gb, char *s)
+size_t	g_strlen(char *s)
 {
-	char	*ret;
-	int		i;
+	size_t i;
 
-	ret = GMALLOC(gb, g_strlen(s) * sizeof(char) + 1);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*g_strdup(t_garbege **g, char *str)
+{
+	unsigned int	i;
+	char			*ret;
+
 	i = -1;
-	while (s[++i])
-		ret[i] = s[i];
+	ret = GMALLOC(g, g_strlen(str) * sizeof(char) + 1);
+	while (str[++i])
+		ret[i] = str[i];
 	ret[i] = '\0';
 	return (ret);
 }
 
-int		main(void)
+char	*g_strcpy(char *dst, const char *src)
 {
-	char		*str;
-	t_garbege	*mem = NULL;
+	int		i;
 
-	str = g_strdup(&mem, "fuck");
-	printf("%s\n", str);
-	str = cpy(&mem, "test");
-	printf("%s\n", str);
-	GCOLLECT(mem);
-	return (0);
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }

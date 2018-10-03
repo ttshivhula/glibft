@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collector.h                                        :+:      :+:    :+:   */
+/*   glibft.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttshivhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/03 14:25:14 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/10/03 14:47:38 by ttshivhu         ###   ########.fr       */
+/*   Created: 2018/10/03 14:38:31 by ttshivhu          #+#    #+#             */
+/*   Updated: 2018/10/03 14:47:36 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	COLLECTOR_H
-# define COLLECTOR_H
+#ifndef	GLIBFT
+# define GLIBFT
 
-# include <stdlib.h>
-# define GMALLOC(ptr, size) alloc_mem(ptr, size)
-# define GCOLLECT(ptr) garbage_collect(ptr)
+# include <unistd.h>
+# include <string.h>
+# include <collector.h>
 
-typedef	struct			s_garbage
-{
-	void				*ptr;
-	struct s_garbage	*next;
-}						t_garbege;
-
-void					*alloc_mem(t_garbege **gb, size_t size);
-void					garbage_collect(t_garbege *head);
+size_t		g_strlen(char *s);
+char		*g_strdup(t_garbege **g, char *str);
+char		*g_strcpy(char *dst, const char *src);
 
 #endif
