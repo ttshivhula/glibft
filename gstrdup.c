@@ -6,7 +6,7 @@
 /*   By: ttshivhu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 14:40:50 by ttshivhu          #+#    #+#             */
-/*   Updated: 2018/10/03 14:48:26 by ttshivhu         ###   ########.fr       */
+/*   Updated: 2018/10/04 08:36:00 by ttshivhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	g_strlen(char *s)
 	return (i);
 }
 
-char	*g_strdup(t_garbege **g, char *str)
+char	*g_strdup(t_garbage **g, char *str)
 {
 	unsigned int	i;
 	char			*ret;
